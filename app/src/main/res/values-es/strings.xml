@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RetoAndroidCP</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_candy">Dulceria</string>
+    <string name="title_login">Sesión</string>
+</resources>
