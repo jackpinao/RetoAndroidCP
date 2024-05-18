@@ -1,18 +1,7 @@
-buildscript {
-    ext {
-        hiltVersion = libs.versions.hilt.get()
-    }
-    dependencies {
-        classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
-    }
-}
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
-    id 'dagger.hilt.android.plugin'
-    id 'kotlin-kapt'
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.dagge.hilt.android.gradle.plugin)
 }
 
 android {
@@ -49,7 +38,7 @@ android {
         exclude 'META-INF/gradle/incremental.annotation.processors'
     }
 }
-apply plugin: 'kotlin-kapt'
+
 dependencies {
 
     implementation libs.appcompat
@@ -67,7 +56,7 @@ dependencies {
     implementation libs.glide
     implementation libs.dagger.hilt
     implementation libs.hilt.android
-    kapt libs.hilt.compiler
+    annotationProcessor libs.hilt.compiler
 
     testImplementation libs.junit
     testImplementation libs.mockk

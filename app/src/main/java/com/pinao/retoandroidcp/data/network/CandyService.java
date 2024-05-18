@@ -2,15 +2,11 @@ package com.pinao.retoandroidcp.data.network;
 
 import com.pinao.retoandroidcp.data.model.CandyModel;
 import com.pinao.retoandroidcp.data.network.ApiService.ApiService;
-
-import org.openjdk.tools.sjavac.Log;
-
 import java.util.Collections;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import retrofit2.Response;
+import android.util.Log;
 
 public class CandyService {
 
@@ -27,7 +23,7 @@ public class CandyService {
                 return response.body();
             }
         } catch (Exception e) {
-            Log.error("Error fetching candy entities");
+            Log.e("CandyService", "Error getting candies", e);
         }
         return Collections.emptyList();
     }

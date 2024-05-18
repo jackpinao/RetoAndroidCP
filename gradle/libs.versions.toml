@@ -1,6 +1,5 @@
 [versions]
 agp = "8.4.0"
-hiltCompiler = "2.44"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
@@ -12,13 +11,19 @@ lifecycleViewmodelKtx = "2.8.0"
 navigationFragment = "2.7.7"
 navigationUi = "2.7.7"
 googleGmsGoogleServices = "4.4.1"
+#FIREBASE
 firebaseAuth = "23.0.0"
+#ROOM
 room-Runtime = "2.6.1"
 roomCommon = "2.6.1"
+#NETWORK
 retrofit = "2.11.0"
 retrofit-gson = "2.11.0"
+#GLIDE
 glide = "4.16.0"
-hilt = "2.50"
+#HILT
+hilt = "2.51.1"
+hiltCompiler = "2.44"
 
 [libraries]
 
@@ -32,15 +37,21 @@ lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-lived
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
+#FIREBASE
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+#ROOM
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-Runtime" }
 room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
+#NETWORK
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit-gson" }
+#GLIDE
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
-dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version = "2.51.1" }
+#TEST
 mockk = { group = "io.mockk", name = "mockk", version = "1.12.2" }
 mockito = { group = "org.mockito", name = "mockito-core", version = "3.12.4" }
+#HILT
+dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version = "2.51.1" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 
@@ -49,7 +60,6 @@ hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hil
 android-application = { id = "com.android.application", version.ref = "agp" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 dagge-hilt-android-gradle-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltCompiler" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version = "1.8.0" }
 
 
 

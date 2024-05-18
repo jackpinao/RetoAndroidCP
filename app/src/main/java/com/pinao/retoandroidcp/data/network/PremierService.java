@@ -2,15 +2,11 @@ package com.pinao.retoandroidcp.data.network;
 
 import com.pinao.retoandroidcp.data.network.ApiService.ApiService;
 import com.pinao.retoandroidcp.data.model.PremierModel;
-
-import org.openjdk.tools.sjavac.Log;
-
 import java.util.Collections;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import retrofit2.Response;
+import android.util.Log;
 
 public class PremierService   {
 
@@ -28,7 +24,7 @@ public class PremierService   {
             //return apiService.getPremiers().execute().body();
         } catch (Exception e) {
             //e.printStackTrace();
-            Log.error("Error fetching premier entities");
+            Log.e("PremierService", "Error getting premiers", e);
         }
         return Collections.emptyList();
         //apiService.getPremiers();
