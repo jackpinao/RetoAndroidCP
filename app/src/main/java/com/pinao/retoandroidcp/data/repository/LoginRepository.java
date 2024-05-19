@@ -37,7 +37,7 @@ public class LoginRepository {
         return items;
     }
 
-    public List<LoginItems> getAllLoginsFromDatabase() {
+    public List<LoginItems> getAllLoginFromDatabase() {
         List<LoginItems> items = Collections.emptyList();
         try {
             List<LoginEntity> response = loginDao.getAll( "test","test2").getValue();
@@ -58,4 +58,6 @@ public class LoginRepository {
     public void clearLogins() {
         loginDao.deleteAll();
     }
+
+
 }

@@ -10,5 +10,16 @@
         android:name="com.pinao.retoandroidcp.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/navigation_candy"
+        android:name="com.pinao.retoandroidcp.ui.candy.CandyFragment"
+        android:label="@string/title_candy"
+        tools:layout="@layout/fragment_candy" />
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.pinao.retoandroidcp.ui.login.LoginFragment"
+        android:label="@string/title_login"
+        tools:layout="@layout/fragment_login" />
 
 </navigation>

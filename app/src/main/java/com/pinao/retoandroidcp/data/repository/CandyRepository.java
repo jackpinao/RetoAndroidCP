@@ -40,7 +40,7 @@ public class CandyRepository {
         }
         return items;
     }
-    public List<CandyItems> getAllPremierFromDatabase() {
+    public List<CandyItems> getAllCandyFromDatabase() {
         List<CandyItems> items = Collections.emptyList();
         try {
             List<CandyEntity> response = candyDao.getAll().getValue();
@@ -50,6 +50,18 @@ public class CandyRepository {
         }
         catch (Exception e) {
             Log.e("PremierRepository", "Error fetching premier entities", e);
+        }
+        return items;
+    }
+    public List<CandyItems> getCandysFromApi() {
+        List<CandyItems> items = Collections.emptyList();
+        try {
+            List<CandyModel> response = candyService.getCandies();
+            if(response != null) {
+                items = response.stream().map(CandyModel::toDomain).collect(Collectors.toList());
+            }
+        } catch (Exception e) {
+            Log.e("CandyRepository", "Error fetching candy entities", e);
         }
         return items;
     }

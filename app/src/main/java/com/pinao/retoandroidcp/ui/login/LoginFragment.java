@@ -12,6 +12,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.pinao.retoandroidcp.databinding.FragmentLoginBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding binding;

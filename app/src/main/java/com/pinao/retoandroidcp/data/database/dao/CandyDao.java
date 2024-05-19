@@ -18,7 +18,6 @@ public interface CandyDao {
     LiveData<List<CandyEntity>> getAll();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-        //void insert(CandyEntity candyEntity);
     void insertAll(List<CandyEntity> candyEntity);
 
     @Query("DELETE FROM CandyEntity_table")

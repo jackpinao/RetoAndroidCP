@@ -12,6 +12,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.pinao.retoandroidcp.databinding.FragmentCandyBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class CandyFragment extends Fragment {
 
     private FragmentCandyBinding binding;
