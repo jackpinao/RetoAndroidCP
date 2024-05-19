@@ -26,7 +26,7 @@ public class HomeViewModel extends ViewModel {
     }
 
     public void onCreate() {
-        Single.fromCallable(() -> getPremierUseCase.invoke())
+        Single.fromCallable(getPremierUseCase::invoke)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::updateLiveData, this::logError);

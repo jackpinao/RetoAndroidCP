@@ -1,5 +1,6 @@
 package com.pinao.retoandroidcp.data.network;
 
+import com.pinao.retoandroidcp.data.Response.PremierResponse;
 import com.pinao.retoandroidcp.data.network.ApiService.ApiService;
 import com.pinao.retoandroidcp.data.model.PremierModel;
 import java.util.Collections;
@@ -17,9 +18,9 @@ public class PremierService   {
     }
     public List<PremierModel> getPremiers() {
         try {
-            Response<List<PremierModel>> response = apiService.getPremiers().execute();
-            if (response.isSuccessful()) {
-                return response.body();
+            Response<PremierResponse> response = apiService.getPremiers().execute();
+            if (response.isSuccessful() && response.body() != null) {
+                return response.body().getPremieres();
             }
             //return apiService.getPremiers().execute().body();
         } catch (Exception e) {

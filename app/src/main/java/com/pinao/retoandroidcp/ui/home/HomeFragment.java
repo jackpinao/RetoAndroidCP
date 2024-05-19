@@ -48,19 +48,6 @@ public class HomeFragment extends Fragment {
         Animation slideAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_animation);
         binding.imageHome.startAnimation(slideAnimation);
         binding.textHome.startAnimation(slideAnimation);
-        //final TextView textView = binding.textHome;
-
-        // Obtiene el ViewModel
-
-        //homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
-//        homeViewModel.getPremiers().observe(getViewLifecycleOwner(), premierEntities -> {
-//            if (premierEntities != null && !premierEntities.isEmpty()) {
-//                Glide.with(this)
-//                        .load(premierEntities.get(0).getImage())
-//                        .into(binding.imageHome);
-//            }
-//        });
 
         return root;
     }
