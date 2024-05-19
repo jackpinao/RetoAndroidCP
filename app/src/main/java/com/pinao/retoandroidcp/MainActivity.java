@@ -15,6 +15,9 @@ import androidx.fragment.app.FragmentContainerView;
 
 import com.pinao.retoandroidcp.databinding.ActivityMainBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     //private ActivityMainBinding binding;

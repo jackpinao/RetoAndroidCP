@@ -1,10 +1,6 @@
 package com.pinao.retoandroidcp.domain;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import com.pinao.retoandroidcp.domain.model.PremierItems;
 import com.pinao.retoandroidcp.data.repository.PremierRepository;
@@ -18,17 +14,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import io.mockk.impl.annotations.RelaxedMockK;
-
 public class GetPremierUseCaseTest {
     //@Mock
-    @RelaxedMockK
+    //@RelaxedMockK
     private PremierRepository premierRepository;
     private GetPremierUseCase getPremierUseCase;
 
     @Before
     public void onBefore(){
         MockitoAnnotations.initMocks(this);
+        premierRepository = mock(PremierRepository.class);
         getPremierUseCase = new GetPremierUseCase(premierRepository);
 
     }
@@ -52,19 +47,33 @@ public class GetPremierUseCaseTest {
 //        //Then
 //    }
 
+//    @Test
+//    public void cuandoElApiRetornaValoresDeDatabase() throws Exception {
+//        //Given
+//        List<PremierItems> premierItems = Collections.singletonList(new PremierItems("TEST","TESTDESC","https://es.wikipedia.org/wiki/Anas_platyrhynchos_domesticus#/media/Archivo:Anas_platyrhynchos_qtl1.jpg"));
+//        when(premierRepository.getAllPremierFromDatabase()).thenReturn((List<PremierItems>) CompletableFuture.completedFuture(premierItems));
+//        //When
+//        CompletableFuture<List<PremierItems>> future = (CompletableFuture<List<PremierItems>>) getPremierUseCase.invoke();
+//        //Then
+//        future.thenAccept(result ->{
+//            verify(premierRepository,times(1)).clearPremiers();
+//            verify(premierRepository,times(1)).insertPremiers(any());
+//            verify(premierRepository,never()).getAllPremierFromDatabase();
+//            assert result.equals(premierItems);
+//        }).get();
+//    }
     @Test
     public void cuandoElApiRetornaValoresDeDatabase() throws Exception {
-        //Given
-        List<PremierItems> premierItems = Collections.singletonList(new PremierItems("TEST","TESTDESC","https://es.wikipedia.org/wiki/Anas_platyrhynchos_domesticus#/media/Archivo:Anas_platyrhynchos_qtl1.jpg"));
-        when(premierRepository.getAllPremierFromDatabase()).thenReturn((List<PremierItems>) CompletableFuture.completedFuture(premierItems));
-        //When
+        List<PremierItems> premierItems = Collections.singletonList(new PremierItems("TEST", "TESTDESC", "https://es.wikipedia.org/wiki/Anas_platyrhynchos_domesticus#/media/Archivo:Anas_platyrhynchos_qtl1.jpg"));
+        when(premierRepository.getAllPremierFromDatabase()).thenReturn(premierItems);
+
         CompletableFuture<List<PremierItems>> future = (CompletableFuture<List<PremierItems>>) getPremierUseCase.invoke();
-        //Then
-        future.thenAccept(result ->{
-            verify(premierRepository,times(1)).clearPremiers();
-            verify(premierRepository,times(1)).insertPremiers(any());
-            verify(premierRepository,never()).getAllPremierFromDatabase();
-            assert result.equals(premierItems);
+        List<PremierItems> result = future.get();
+        future.thenAccept(res -> {
+            verify(premierRepository, times(1)).clearPremiers();
+            verify(premierRepository, times(1)).insertPremiers(any());
+            verify(premierRepository, never()).getAllPremierFromDatabase();
+            assert res.equals(premierItems);
         }).get();
     }
 

@@ -19,13 +19,5 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PremierDao premierDao();
     public abstract CandyDao candyDao();
 
-    private static AppDatabase INSTANCE;
-
-    public static AppDatabase getAppDatabase(Context context) {
-        if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(), AppDatabase.class, "retoandroidcp-db").build();
-        }
-        return INSTANCE;
-    }
 }
 

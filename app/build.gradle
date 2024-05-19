@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.dagge.hilt.android.gradle.plugin)
+    //alias(libs.plugins.room)
 }
 
 android {
@@ -17,7 +18,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -48,15 +48,24 @@ dependencies {
     implementation libs.lifecycle.viewmodel.ktx
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
+    //FIREBASE
     implementation libs.firebase.auth
+    //ROOM
     implementation libs.room.runtime
     implementation libs.room.common
+    annotationProcessor libs.room.compiler
+    //RETROFIT
     implementation libs.retrofit
     implementation libs.retrofit.gson
+    //GLIDE
     implementation libs.glide
+    //HILT
     implementation libs.dagger.hilt
     implementation libs.hilt.android
     annotationProcessor libs.hilt.compiler
+    //RXJAVA
+    implementation libs.rxjava
+    implementation libs.rxjava.android
 
     testImplementation libs.junit
     testImplementation libs.mockk

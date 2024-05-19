@@ -16,6 +16,7 @@ firebaseAuth = "23.0.0"
 #ROOM
 room-Runtime = "2.6.1"
 roomCommon = "2.6.1"
+room = "2.6.1"
 #NETWORK
 retrofit = "2.11.0"
 retrofit-gson = "2.11.0"
@@ -41,6 +42,7 @@ navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 #ROOM
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-Runtime" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room-Runtime" }
 room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 #NETWORK
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
@@ -48,18 +50,22 @@ retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", ver
 #GLIDE
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 #TEST
-mockk = { group = "io.mockk", name = "mockk", version = "1.12.2" }
-mockito = { group = "org.mockito", name = "mockito-core", version = "3.12.4" }
+mockk = { group = "io.mockk", name = "mockk", version = "1.13.11" }
+mockito = { group = "org.mockito", name = "mockito-core", version = "5.12.0" }
 #HILT
 dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version = "2.51.1" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+#RXJAVA
+rxjava = { module = "io.reactivex.rxjava3:rxjava", version = "3.1.8" }
+rxjava-android = { module = "io.reactivex.rxjava3:rxandroid", version = "3.0.2" }
 
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 dagge-hilt-android-gradle-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltCompiler" }
+room = { id = "androidx.room", version.ref = "room" }
 
 
 
