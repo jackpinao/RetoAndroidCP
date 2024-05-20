@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/signInWithGoogle"
+        android:id="@+id/btnSignInWithGoogle"
         android:layout_width="310dp"
         android:layout_height="48dp"
         android:background="@drawable/rectangle"
@@ -19,20 +19,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
+        app:layout_constraintVertical_bias="0.395"
+        android:onClick="siGoogle"/>
 
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="34dp"
         android:layout_height="29dp"
         android:layout_marginEnd="244dp"
-        app:layout_constraintBottom_toBottomOf="@+id/signInWithGoogle"
-        app:layout_constraintEnd_toEndOf="@+id/signInWithGoogle"
-        app:layout_constraintTop_toTopOf="@+id/signInWithGoogle"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSignInWithGoogle"
+        app:layout_constraintEnd_toEndOf="@+id/btnSignInWithGoogle"
+        app:layout_constraintTop_toTopOf="@+id/btnSignInWithGoogle"
         app:srcCompat="@drawable/google" />
 
     <TextView
-        android:id="@+id/guest"
+        android:id="@+id/btnGuest"
         android:layout_width="310dp"
         android:layout_height="48dp"
         android:background="@drawable/rectangle"
@@ -43,17 +44,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
+        app:layout_constraintVertical_bias="0.62"
+        android:onClick="guest"/>
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="34dp"
         android:layout_height="29dp"
-        app:layout_constraintBottom_toBottomOf="@+id/guest"
-        app:layout_constraintEnd_toEndOf="@+id/guest"
+        app:layout_constraintBottom_toBottomOf="@+id/btnGuest"
+        app:layout_constraintEnd_toEndOf="@+id/btnGuest"
         app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="@+id/guest"
-        app:layout_constraintTop_toTopOf="@+id/guest"
+        app:layout_constraintStart_toStartOf="@+id/btnGuest"
+        app:layout_constraintTop_toTopOf="@+id/btnGuest"
         app:srcCompat="@drawable/people" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -48,8 +48,12 @@ dependencies {
     implementation libs.lifecycle.viewmodel.ktx
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
+    //GOOGLE
+    implementation libs.google.gms.play.services.auth
     //FIREBASE
     implementation libs.firebase.auth
+    implementation platform (libs.firebase.bom)
+    implementation libs.firebase.analytics
     //ROOM
     implementation libs.room.runtime
     implementation libs.room.common

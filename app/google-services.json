@@ -12,7 +12,20 @@
           "package_name": "com.pinao.retoandroidcp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "71237814647-j6e1ih7hg1v8n793tkg915vemhsbn0on.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pinao.retoandroidcp",
+            "certificate_hash": "d60fb39f46f8d53b3a9e2971f84808b843150175"
+          }
+        },
+        {
+          "client_id": "71237814647-bfqel27324s3qj4oahn5jgj0ot2bqef3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCNczv5YcIOstvI-w8Nf0Iqw-xlthFEIiQ"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71237814647-bfqel27324s3qj4oahn5jgj0ot2bqef3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

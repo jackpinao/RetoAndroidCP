@@ -4,4 +4,5 @@
     <string name="title_home">Inicio</string>
     <string name="title_candy">Dulceria</string>
     <string name="title_login">Sesión</string>
+    <string name="default_web_client_id">1:71237814647:android:a12c7f8cd3b22700a73972</string>
 </resources>

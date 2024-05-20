@@ -3,4 +3,5 @@
     <string name="title_home">Home</string>
     <string name="title_candy">Candy store</string>
     <string name="title_login">Login</string>
+    <string name="default_web_client_id">1:71237814647:android:a12c7f8cd3b22700a73972</string>
 </resources>
