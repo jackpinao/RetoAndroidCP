@@ -1,5 +1,6 @@
 package com.pinao.retoandroidcp.data.network.ApiService;
 
+import com.pinao.retoandroidcp.data.Response.CandyResponse;
 import com.pinao.retoandroidcp.data.Response.PremierResponse;
 import com.pinao.retoandroidcp.data.model.CandyModel;
 import com.pinao.retoandroidcp.data.model.LoginModel;
@@ -12,7 +13,7 @@ import retrofit2.http.GET;
 
 public interface ApiService {
     @GET("https://cp-staging.onrender.com/v1/candystore")
-    Call<List<CandyModel>> getCandies();
+    Call<CandyResponse> getCandies();
     @GET("https://cp-staging.onrender.com/v1/premieres")
     Call<PremierResponse> getPremiers();
     @GET("FIREBASE")

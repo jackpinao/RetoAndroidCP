@@ -1,15 +1,19 @@
 package com.pinao.retoandroidcp.ui.home;
 
 import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
 import com.pinao.retoandroidcp.domain.model.PremierItems;
 import com.pinao.retoandroidcp.domain.usecase.GetPremierUseCase;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.inject.Inject;
+
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -34,13 +38,7 @@ public class HomeViewModel extends ViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::updateLiveData, this::logError);
     }
-//    private void updateLiveData(List<PremierItems> premierItems) {
-//        if (!premierItems.isEmpty()) {
-//            PremierItems firstItem = premierItems.get(0);
-//            image.setValue(firstItem.getImage());
-//            description.setValue(firstItem.getDescription());
-//        }
-//    }
+
     private void updateLiveData(List<PremierItems> premierItems) {
         if (!premierItems.isEmpty()) {
             List<String> list = new ArrayList<>();
@@ -53,6 +51,7 @@ public class HomeViewModel extends ViewModel {
             description.setValue(list2);
         }
     }
+
     private void logError(Throwable error) {
         Log.e("HomeViewModel", "Error in OnCreate", error);
     }
@@ -60,23 +59,13 @@ public class HomeViewModel extends ViewModel {
     public LiveData<String> getImage() {
         return image;
     }
+
     public LiveData<List<String>> getImageUrls() {
         return imageUrls;
     }
+
     public LiveData<List<String>> getDescriptionUrls() {
         return description;
     }
-
-//    public LiveData<String> getDescription() {
-//        return description;
-//    }
-
-//    public LiveData<String> getText() {
-//        return mText;
-//    }
-//
-//    public LiveData<List<PremierEntity>> getPremiers() {
-//        return premierEntities;
-//    }
 
 }

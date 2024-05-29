@@ -1,5 +1,6 @@
 package com.pinao.retoandroidcp.data.network;
 
+import com.pinao.retoandroidcp.data.Response.CandyResponse;
 import com.pinao.retoandroidcp.data.model.CandyModel;
 import com.pinao.retoandroidcp.data.network.ApiService.ApiService;
 import java.util.Collections;
@@ -18,9 +19,9 @@ public class CandyService {
 
     public List<CandyModel> getCandies() {
         try {
-            Response<List<CandyModel>> response = apiService.getCandies().execute();
-            if (response.isSuccessful()) {
-                return response.body();
+            Response<CandyResponse> response = apiService.getCandies().execute();
+            if (response.isSuccessful() && response.body() != null) {
+                return response.body().getItems();
             }
         } catch (Exception e) {
             Log.e("CandyService", "Error getting candies", e);

@@ -28,36 +28,11 @@ public class CandyRepository {
         this.candyService = candyService;
     }
 
-    public List<CandyItems> getPremiersFromApi() {
-        List<CandyItems> items = Collections.emptyList();
-        try {
-            List<CandyModel> response = candyService.getCandies();
-            if(response != null) {
-                items = response.stream().map(CandyModel::toDomain).collect(Collectors.toList());
-            }
-        } catch (Exception e) {
-            Log.e("PremierRepository", "Error fetching premier entities", e);
-        }
-        return items;
-    }
-    public List<CandyItems> getAllCandyFromDatabase() {
-        List<CandyItems> items = Collections.emptyList();
-        try {
-            List<CandyEntity> response = candyDao.getAll().getValue();
-            if(response != null) {
-                items = response.stream().map(CandyEntity::toDomain).collect(Collectors.toList());
-            }
-        }
-        catch (Exception e) {
-            Log.e("PremierRepository", "Error fetching premier entities", e);
-        }
-        return items;
-    }
     public List<CandyItems> getCandysFromApi() {
         List<CandyItems> items = Collections.emptyList();
         try {
             List<CandyModel> response = candyService.getCandies();
-            if(response != null) {
+            if (response != null) {
                 items = response.stream().map(CandyModel::toDomain).collect(Collectors.toList());
             }
         } catch (Exception e) {
@@ -66,9 +41,24 @@ public class CandyRepository {
         return items;
     }
 
+    public List<CandyItems> getAllCandyFromDatabase() {
+        List<CandyItems> items = Collections.emptyList();
+        try {
+            List<CandyEntity> response = candyDao.getAll().getValue();
+            if (response != null) {
+                items = response.stream().map(CandyEntity::toDomain).collect(Collectors.toList());
+            }
+        } catch (Exception e) {
+            Log.e("CandyRepository", "Error fetching premier entities", e);
+        }
+        return items;
+    }
+
+
     public void insertCandies(List<CandyEntity> items) {
         candyDao.insertAll(items);
     }
+
     public void clearCandies() {
         candyDao.deleteAll();
     }

@@ -15,21 +15,20 @@ import java.util.stream.Collectors;
 import javax.inject.Inject;
 
 public class PremierRepository {
-
     private final PremierDao premierDao;
     private final PremierService premierService;
+
     @Inject
     public PremierRepository(PremierDao premierDao, PremierService premierService) {
         this.premierDao = premierDao;
         this.premierService = premierService;
     }
-    ////------
 
     public List<PremierItems> getPremiersFromApi() {
         List<PremierItems> items = Collections.emptyList();
         try {
             List<PremierModel> response = premierService.getPremiers();
-            if(response != null) {
+            if (response != null) {
                 items = response.stream().map(PremierModel::toDomain).collect(Collectors.toList());
             }
         } catch (Exception e) {
@@ -37,15 +36,15 @@ public class PremierRepository {
         }
         return items;
     }
+
     public List<PremierItems> getAllPremierFromDatabase() {
         List<PremierItems> items = Collections.emptyList();
         try {
             List<PremierEntity> response = premierDao.getAll().getValue();
-            if(response != null) {
+            if (response != null) {
                 items = response.stream().map(PremierEntity::toDomain).collect(Collectors.toList());
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.e("PremierRepository", "Error fetching premier entities", e);
         }
         return items;
