@@ -7,18 +7,20 @@
     android:background="#00BCD4"
     tools:context=".ui.candy.CandyFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="575dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/pricesTotalTXT" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/pricesTotalTXT"
         android:layout_width="90dp"
         android:layout_height="0dp"
         android:layout_marginTop="46dp"
@@ -35,20 +37,19 @@
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginStart="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="@+id/pricesTotalTXT"
+        app:layout_constraintStart_toStartOf="@+id/pricesTotalTXT"
+        app:layout_constraintTop_toTopOf="@+id/pricesTotalTXT"
         app:srcCompat="@drawable/shoppingcart" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/continueBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="50dp"
         android:text="Continuar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

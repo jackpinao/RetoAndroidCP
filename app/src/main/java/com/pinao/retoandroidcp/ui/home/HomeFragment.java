@@ -30,8 +30,8 @@ public class HomeFragment extends Fragment {
     private final int imageChangeDelay = 3000;
     private List<String> imageUrls = new ArrayList<>();
     private List<String> description = new ArrayList<>();
-    private Handler imageChangeHandler = new Handler(Looper.getMainLooper());
-    private Runnable imageChangeRunnable = new Runnable() {
+    private final Handler imageChangeHandler = new Handler(Looper.getMainLooper());
+    private final Runnable imageChangeRunnable = new Runnable() {
         @Override
         public void run() {
             if (!imageUrls.isEmpty() && !description.isEmpty()) {
@@ -53,7 +53,6 @@ public class HomeFragment extends Fragment {
         }
     };
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -65,18 +64,6 @@ public class HomeFragment extends Fragment {
 
         homeViewModel.onCreate();
 
-//        homeViewModel.getDescription().observe(getViewLifecycleOwner(), description -> {
-//            binding.textHome.setText(description);
-//        });
-//        homeViewModel.getImage().observe(getViewLifecycleOwner(), image -> {
-//            if (image != null && !image.isEmpty()) {
-//                Glide.with(this)
-//                        .load(image)
-//                        .into(binding.imageHome);
-//                Animation slideAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_animation);
-//                binding.imageHome.startAnimation(slideAnimation);
-//            }
-//        });
         homeViewModel.getImageUrls().observe(getViewLifecycleOwner(), urls -> {
             imageUrls = urls;
             // Inicia el ciclo de cambio de imágenes solo si aún no ha comenzado
@@ -92,11 +79,6 @@ public class HomeFragment extends Fragment {
                 imageChangeHandler.postDelayed(imageChangeRunnable, imageChangeDelay);
             }
         });
-
-        // Carga la animación
-
-//        binding.imageHome.startAnimation(slideAnimation);
-//        binding.textHome.startAnimation(slideAnimation);
 
         return root;
     }

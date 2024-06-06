@@ -31,4 +31,8 @@ public class CandyItems {
     public String getImage() {
         return image;
     }
+
+    public String getPrice() {
+        return price;
+    }
 }

@@ -23,7 +23,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 public class HomeViewModel extends ViewModel {
 
     private final GetPremierUseCase getPremierUseCase;
-    private final MutableLiveData<String> image = new MutableLiveData<>();
     private final MutableLiveData<List<String>> description = new MutableLiveData<>();
     private final MutableLiveData<List<String>> imageUrls = new MutableLiveData<>();
 
@@ -54,10 +53,6 @@ public class HomeViewModel extends ViewModel {
 
     private void logError(Throwable error) {
         Log.e("HomeViewModel", "Error in OnCreate", error);
-    }
-
-    public LiveData<String> getImage() {
-        return image;
     }
 
     public LiveData<List<String>> getImageUrls() {

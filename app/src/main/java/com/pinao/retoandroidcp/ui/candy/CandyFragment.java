@@ -1,23 +1,36 @@
 package com.pinao.retoandroidcp.ui.candy;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.pinao.retoandroidcp.databinding.FragmentCandyBinding;
+import com.pinao.retoandroidcp.domain.adapter.CandyAdapter;
+import com.pinao.retoandroidcp.domain.model.CandyItems;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class CandyFragment extends Fragment {
+public class CandyFragment extends Fragment implements CandyAdapter.OnAddButtonClickListener, CandyAdapter.OnRemoveButtonClickListener{
 
     private FragmentCandyBinding binding;
+    private final List<CandyItems> candies = new ArrayList<>();
+    private CandyAdapter adapter = new CandyAdapter(candies, this, this);
+    private final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -27,8 +40,33 @@ public class CandyFragment extends Fragment {
         binding = FragmentCandyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-//        final TextView textView = binding.textDashboard;
-//        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        RecyclerView recyclerView = binding.recyclerView;
+
+        CandyViewModel candyViewModel = new ViewModelProvider(this).get(CandyViewModel.class);
+        candyViewModel.onCreate();
+        candyViewModel.getItems().observe(getViewLifecycleOwner(), items -> {
+            if (!items.isEmpty()) {
+                candies.clear();
+                candies.addAll(items);
+                adapter = new CandyAdapter(candies, this, this);
+                linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                recyclerView.setAdapter(adapter);
+
+            }
+        });
+        binding.continueBtn.setOnClickListener(v -> {
+            LayoutInflater inflater
+
+            new AlertDialog.Builder(requireActivity())
+                    .setTitle("Pago")
+
+                    .setPositiveButton("Pagar", (dialog, which) -> {
+                        dialog.dismiss();
+                    })
+                    .setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss())
+                    .show();
+        });
         return root;
     }
 
@@ -36,5 +74,19 @@ public class CandyFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onAddButtonClick(String price) {
+        TextView total = binding.pricesTotalTXT;
+        double totalValue = Double.parseDouble(total.getText().toString());
+        total.setText(String.valueOf(totalValue + Double.parseDouble(price)));
+    }
+
+    @Override
+    public void onRemoveButtonClick(String price) {
+        TextView total = binding.pricesTotalTXT;
+        double totalValue = Double.parseDouble(total.getText().toString());
+        total.setText(String.valueOf(totalValue - Double.parseDouble(price)));
     }
 }
