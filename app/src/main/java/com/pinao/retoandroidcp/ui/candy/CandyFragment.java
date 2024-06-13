@@ -6,7 +6,9 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pinao.retoandroidcp.R;
 import com.pinao.retoandroidcp.databinding.FragmentCandyBinding;
 import com.pinao.retoandroidcp.domain.adapter.CandyAdapter;
 import com.pinao.retoandroidcp.domain.model.CandyItems;
@@ -56,11 +59,17 @@ public class CandyFragment extends Fragment implements CandyAdapter.OnAddButtonC
             }
         });
         binding.continueBtn.setOnClickListener(v -> {
-            LayoutInflater inflater
+            LayoutInflater inflater2 = requireActivity().getLayoutInflater();
+            View dialogView = inflater2.inflate(R.layout.dialog_pay, null);
+            String[] documents = new String[]{"DNI", "Carnet de extranjería", "Pasaporte"};
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(requireActivity(), android.R.layout.simple_spinner_dropdown_item, documents);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            Spinner spinner = dialogView.findViewById(R.id.tipeDocumentSpinner);
+            spinner.setAdapter(adapter);
 
             new AlertDialog.Builder(requireActivity())
                     .setTitle("Pago")
-
+                    .setView(dialogView)
                     .setPositiveButton("Pagar", (dialog, which) -> {
                         dialog.dismiss();
                     })
